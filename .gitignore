@@ -83,5 +83,5 @@ nb-configuration.xml
 ##############################
 
 *.log
-
+client_secret.json
 
