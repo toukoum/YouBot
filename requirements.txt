@@ -1,0 +1,9 @@
+beautifulsoup4==4.11.2
+google_api_python_client==2.81.0
+google_auth_oauthlib==1.0.0
+httplib2==0.21.0
+moviepy==1.0.3
+protobuf==3.20.3
+Requests==2.31.0
+selenium==4.10.0
+webdriver_manager==3.8.5

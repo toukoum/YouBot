@@ -1,0 +1,158 @@
+ce que je veux mettre dans la vidéo : 
+
+Plan de la vidéo. 
+INTRO : 
+PART 1 : CREER LES VIDEO 
+
+- télécharger des vidéo format 9:16 
+- les éditer avec moviepy (librairie de python)
+- rajouter du texte et du son 
+- bien les nommé et les enregistrer dans le dossier video/ 
+
+PART 2 : UPLOADER LES VIDEO
+- parti sur l'idée de l'api yt DATA V3 (nul)
+deux pb : 
+- 1. 10 000 quotas 
+- 2. youtube veut que tu sois une app vérifié pour pouvoir uploader des vidéo en mode public...
+
+- découverte du Scrapping
+- découverte de bautiful soup (juste récuperer des info, pas intéragir avec une page web) 
+- découverte de selenium => tuto (vidéo)
+- pb chrome quand on veut se co sur yt studio (il détecte que le navigateur est contrôler automatiquement) -> chromedriver
+- découverte de geckodriver, même utilisation que chromedriver mais pour firefox
+
+
+---------
+INTRO : 
+---------
+
+
+J'ai créer un robot qui fabrique automatiquement des shorts youtube et qui les postes sans que j'ai besoins de bouger de mon canapé.
+Et ça à pas été facile.
+Alors mesdames et messieur tenez vous pret, car toukoum et son robot vont tous renverser !
+Mr beats et ses 139 millions d'abonnés n'auront qu'a se cacher, car le but ultime, est de les dépasser.
+ 
+let's go
+
+
+_______
+Part -1
+-------
+ 
+Dans un premier temps, J'ai chercher quelle genre de chaine youtube j'allais créer pour ensuite l'automatiser, et j'ai trouvé cette idée de chaine : le-SavaisVous mais oui vous le saviez que la lumière du soleil mettais 8 min à atteindre la terre, et bien voila l'objectif de la chaîne, apprendre des faits super méga giga important sur le monde qui nous entoure. [video qui présente la chaine] 
+
+elle comportera uniquement des shorts, qui auront tous le même squelette de vidéo avec un titre, un texte d'une info captivante et surprenante, une vidéo en arrière plan généraliste et une petite musique bien sympa tu connais ;)
+
+Pour automatiser tout ça, j'ai utilisé le language de programmation python que je connaissais un peu mais qui est relativement simple à comprendre et à utiliser.
+
+Pour télécharger les vidéos en arrière-plan, j'ai découvert le web scraping, qui consiste en gros à extraire automatiquement des données à partir de pages web. J'ai utilisé la bibliothèque BeautifulSoup en Python pour récupérer toutes les informations d'une page web. Je récupère donc des liens de vidéos en format 9:16 et à partir de ces liens, je télécharge toutes mes vidéos d'arrière-plan, comme celle-ci par exemple : [vidéo de pexel].
+
+Une fois téléchargées j'ai utilisé une autre bibliothèque python du nom de Moviepy
+C'est une bibliothèque de traitement vidéo open-source pour Python qui permet de manipuler et de modifier des vidéos, notamment en ajoutant des effets, des titres, des sous-titrese et meme de la musique, bref pile poile ce dont j'ai besoin.
+
+J'ai donc farfouillé dans la doc de Movie py pour : 
+
+monter mes vidéos depuis python puis j'ai assemblé le tout et  voila le genre de vidéo que l'on peut obtenir : [] 
+
+1- Ajouter un titre a toute mes vidéo qui sera le même : Le Savais tu ? 
+2- puis un autre texte en dessous qui contiendra le contenu de l'info 
+
+3- J'ai aussi ajouté une musique de mon dossier musik_tro_b1_walla/
+J'ai assemblé le tout et on obtient ce genre de magnifique vidéo captivante : [vidéo]
+
+
+
+Pour le texte de chaque vidéo j'ai fait des recherches sur internet pour trouver des phrases de 10 mots environ sur des faits surprenants et captivants qui peuvent attirer l'attention, je les ai réécrite puis rangé à la mains une par une dans une liste en python puis... 
+Pas du tout, j'ai utilisé chatGPT [mdr][vidéo démo génération phrases]
+
+
+voila l'étape 1 de création de video est finis, j'ai donc bien mon dossier avec toutes mes short à poster
+
+______
+PART 2
+------
+
+
+Maintenant on s'attaque à la partie que je pensais plus fun mais qui au final m'a bien fait galérer sa mère. 
+
+Uploader mes Shorts sur youtube automatiquement.
+
+Au début, j'avais entendu des gens parler de l'api de youtube pour uploader des video automatiquement, j'ai donc essayé. 
+Une api est une interface logicielle qui permet de « connecter » un logiciel ou un service à un autre logiciel afin d'échanger des données et des fonctionnalités. 
+
+
+Par exemple, imagine que tu veux acheter une glace. Au lieu d'aller au magasin toi-même, tu pourrais demander à un pote d'aller au magasin pour toi et de ramener la glace de tes rêves. Tu lui dirais quelle saveur de glace tu veux, combien de boules tu veux, etc.
+Et bah ce pote, dans notre exemple, c'est l'api de youtube et je lui demande de mettre mes vidéo en lignes en lui donnant des paramètres précis : dans quelle dossier trouver la vidéo, le titre, la description ect... [ex requete api yt json] un bon pote quoi ;) [vidéo explicative API]
+
+J'ai donc utilisé l'API de YOUTUBE Data V3 qui permet d'uploader des vidéo sur ma chaine, et... parfait ! 
+et bien non en fait ya deux problème : 
+Déjà youtube te donne un quota journalier de 10 000 tokens pour utiliser son api, chaque action intérragissant avec l'api coûte des token et dans notre cas, uploader une vidéo coûte 1600 token, soit 6 vidéo par jour, nul quoi...
+
+Et le deuxième problème c'est que youtube veut que tu sois une app vérifié pour pouvoir uploader des vidéo grâce à son api en mode public... cela signifie que toutes mes vidéo seront en privé comme ça [vidéo du gars]... re nul quoi...
+
+
+
+Du coup fallait trouvé une autre solution. 
+j'ai un peu cherché, beaucoup cherché et voila la solution que j'ai trouvé.
+
+
+Vous vous rappelez du web scrapping dans la partie 1 pour récupérer les videos d'arrière plan ? Et bah avec cet outil on peut non seulement récupérer les infos d'un site web, mais aussi interagir avec lui et tout ça depuis python. 
+Pour ca j'ai utiliser la bibliothèque Selenium, qui est super puissante. 
+
+
+Selenium c'est comme une baguette magique pour les ordinateurs. Il permet de leur donner des ordres automatiques, comme cliquer sur des boutons ou remplir des formulaires sur des sites internet. C'est très pratique quand on veut faire des choses répétitives ou fastidieuses. parfait pour mon cas cas car on veut à répétition uploader des vidéo youtube. [video explicative Selenium driver...]
+
+Pour fonctionner, Selenium a besoin d'un petit programme appelé "driver". Ce driver agit comme une sorte de messager entre Selenium et le site internet que tu veux manipuler.
+
+Chromedriver est un de ces drivers. Il fonctionne spécialement avec le navigateur internet Google Chrome. Avec Selenium et Chromedriver, je peux naviguer sur chrome depuis python, C'est magnifique quoi ! 
+
+je me suis donc connecté a youtube studio puis j'ai cliquer automatiquement sur les boutons pour upload la video que je voulaiiiiis... sauf que non 
+Fallait bien que google me casse les couille a un moment donné, ce qu'il se passe c'est que chrome detecte que je l'utilise de façon automatique et il ne veut pas que je me connecte à mon compte google, et donc à youtube studio... re re nul quoi...
+
+J'ai cherché dans les profondeur d'internet pour résoudre mon problème et miraculeusement j'ai trouvé ce gentil monsieur [video d'un mec qui me dit d'utiliser geckodriver] 
+qui nous explique qu'il faut utiliser geckodriver pour résoudre ce problème, qui est tout simplement l'equivalent de chromedriver pour firefox. 
+En effet, chrome est développé par google et donc il sait parfaitement reconnaître quand un petit filou utlise chromedriver comme moi sauf qu'en utilisant geckodriver et en modifiant quelque paramètres, il ne sait pas si firefox est utilisé de façon automatique, et bingo je peux me connecter sur mon youtube studio !
+
+
+
+
+
+Il me reste plus qu'a gérer quelques bug et... voila, après des heures et des heures, ça marche !
+
+
+Part 3 - Résultats 
+------
+
+La chaîne le savais tu est maintenant disponible si tu veux aller la voir un lien est dans la description.
+Tout les soirs à 19h, mon robot poste automatiquement 50 shorts a découvrir. avec des infos incroyables qui vous feront frémir.  
+
+
+Au moment ou je parle, la chaine compte 20 abbonés, la vidéo la plus regardé à 1600 vues, et ma chaine cumule 13 000 vues en tout pour un total de 36,5 heures de visionnage.
+
+mon robot est enfin prêt pour devenir le youtuber n°1 mondiale devant Mr beast... ou peut être pas ;)
+
+
+
+
+
+vidéo à tourner 
+----------------
+
+
+
+1 video pour j'ai un peu chercher, bcp cher => plan de l'arrière (je zoomerais] ou on me voit chercher un truc pas du tout en rapport 
+
+1 plan du script de la vidéo en même temps que je dis le mot  
+
+1 plan d'extasie complet
+
+
+
+
+
+
+
+
+
+
+
