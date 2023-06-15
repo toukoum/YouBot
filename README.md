@@ -1,7 +1,7 @@
 **This bot work perfectly but some update come in a short time**   
 **You may check these out in the meanwhile**:
 
-![alt text](https://github.com/[toukoum]/[YouBot]/blob/[master]/banner.png?raw=true)
+<img src="./static/banner.png" alt="Banner YouBot" style=" height:200px; " />
 
 # Youtube-Shorts-Bot
  This Python Bot Scrape Videos from Pexels, & Add a Random Song from Songs Folder, Then You Can Auto Upload The Videos To Your Youtube Channel
